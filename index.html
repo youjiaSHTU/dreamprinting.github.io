@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DreamPrinting: Volumetric Printing Primitives for High-Fidelity 3D Printing</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://cysta.ai/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DreamPrinting: Volumetric Printing Primitives for High-Fidelity 3D Printing</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dreamprinting.github.io/">Youjia Wang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://dreamprinting.github.io/">Ruixiang Cao</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://dreamprinting.github.io/">Teng Xu</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dreamprinting.github.io/">Yifei Liu</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dongdoodle.github.io/">Dong Zhang</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dreamprinting.github.io/">Yiwen Wu</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.yu-jingyi.com/">Jingyi Yu</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ShanghaiTech University,</span>
+            <span class="author-block"><sup>2</sup><a href="https://cysta.ai/">LumiAni Technology</a>,</span>
+            <span class="author-block"><sup>3</sup>Kyoto University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.00887"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.00887"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/43qfgK0Ypxc"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="./static/images/teaser.jpg" alt="DreamPrinting Teaser" height="100%">
+      <h2 class="subtitle has-text-centered">
+        We present <span class="dnerf">DreamPrinting</span>, 
+        a novel 3D volumetric printing pipeline that precisely assigns pigment labels at the voxel level, 
+        enabling the reproduction of complex visual effects with remarkable realism. 
+        <!-- By capturing both geometric detail and vibrant color fidelity, 
+        our method transforms radiance-based 3D assets into tangible prints that faithfully reflect real-world appearances, 
+        bridging the gap between the virtual and the physical with unprecedented fidelity. -->
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Translating the rich visual fidelity of volumetric rendering techniques into physically realizable 3D prints remains an open challenge. 
+            We introduce <span class="dnerf">DreamPrinting</span>, a novel pipeline that transforms radiance-based volumetric representations into explicit, material-centric Volumetric Printing Primitives (VPPs). 
+          </p>
+          <p>
+            While volumetric rendering primitives (e.g., NeRF) excel at capturing intricate geometry and appearance, they lack the physical constraints necessary for real-world fabrication, such as pigment compatibility and material density. 
+            <span class="dnerf">DreamPrinting</span> addresses these challenges by integrating the Kubelka-Munk model with a spectrophotometric calibration process to characterize and mix pigments for accurate reproduction of color and translucency. 
+            The result is a continuous-to-discrete mapping that determines optimal pigment concentrations for each voxel, ensuring fidelity to both geometry and optical properties. 
+            A 3D stochastic halftoning procedure then converts these concentrations into printable labels, enabling fine-grained control over opacity, texture, and color gradients. 
+          </p>
+          <p>
+            Our evaluations show that <span class="dnerf">DreamPrinting</span> achieves exceptional detail in reproducing semi-transparent structures—such as fur, leaves, and clouds—while outperforming traditional surface-based methods in managing translucency and internal consistency. 
+            Furthermore, by seamlessly integrating VPPs with cutting-edge 3D generation techniques, <span class="dnerf">DreamPrinting</span> expands the potential for complex, high-quality volumetric prints, providing a robust framework for printing objects that closely mirror their digital origins.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- <h2 class="title is-3">Video</h2> -->
+        <!-- <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div> -->
+      <img id="teaser" src="./static/images/fig2-pipeline_01.png" alt="DreamPrinting Pipeline" height="100%">
+    </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Results</h2>
+      <!-- Interpolating. -->
+      <h3 class="title is-4">3D printing objects from InstantNGP radiance reconstruction</h3>
+      <div class="content has-text-justified">
+        <p>
+          From left to right: the original images, the 2D images rendering from the radiance reconstruction, and the corresponding 3D printing results.
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-lego">
+          <img id="lego" src="./static/images/fig8-gallery1_2_01.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-ficus">
+          <img id="ficus" src="./static/images/fig8-gallery1_3_01.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-duck">
+          <img id="duck" src="./static/images/fig8-gallery1_4_01.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-fox">
+          <img id="fox" src="./static/images/fig8-gallery1_5_01.png" alt="DreamPrinting Results" width="100%">
+        </div>
+      </div>
+      <!-- Interpolating. -->
+      <h3 class="title is-4">Artist-made OpenVDB assets</h3>
+      <div class="content has-text-justified">
+        <p>
+          From left to right: the original volumetric representation, and the corresponding 3D printing results.
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-lego">
+          <img id="lego" src="./static/images/fig8-gallery2_02.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-ficus">
+          <img id="ficus" src="./static/images/fig8-gallery2_03.png" alt="DreamPrinting Results" width="100%">
+        </div>
+      </div>
+      <!-- Interpolating. -->
+      <h3 class="title is-4">Printings of radiance models generated by TRELLIS</h3>
+      <div class="content has-text-justified">
+        <p>
+          From left to right: the prompt image, the generated radiance fields (RF), and the corresponding 3D-printed results.
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-lego">
+          <img id="lego" src="./static/images/fig8-gallery3_02.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-ficus">
+          <img id="ficus" src="./static/images/fig8-gallery3_03.png" alt="DreamPrinting Results" width="100%">
+        </div>
+        <div class="item item-duck">
+          <img id="duck" src="./static/images/fig8-gallery3_04.png" alt="DreamPrinting Results" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{10.1145/3721257.3734025,
+      author = {Wang, Youjia and Cao, Ruixiang and Xu, Teng and Liu, Yifei and Zhang, Dong and Wu, Yiwen and Yu, Jingyi},
+      title = {DreamPrinting: Volumetric Printing Primitives for High-Fidelity 3D Printing},
+      year = {2025},
+      isbn = {9798400715518},
+      publisher = {Association for Computing Machinery},
+      address = {New York, NY, USA},
+      url = {https://doi.org/10.1145/3721257.3734025},
+      doi = {10.1145/3721257.3734025},
+      series = {SIGGRAPH '25}
+      }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
