@@ -27,7 +27,7 @@ if /i "%choice%"=="y" (
     git commit -m "Initial website deployment"
     
     echo 4. 请手动执行以下命令：
-    echo    ggit remote add origin git@github.com:youjiaSHTU/dreamprinting.github.io.git
+    echo    git remote add origin git@github.com:youjiaSHTU/dreamprinting.github.io.git
     echo    git push -u origin main
     echo.
     echo 5. 然后在 GitHub 仓库设置中启用 Pages
