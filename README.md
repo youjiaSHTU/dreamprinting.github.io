@@ -1,14 +1,15 @@
 # Nerfies
 
-This is the repository that contains source code for the [Nerfies website](https://nerfies.github.io).
+This is the repository that contains source code for the [DreamPrinting website](https://youjiashtu.github.io/dreamprinting.github.io/).
 
 If you find Nerfies useful for your work please cite:
 ```
-@article{park2021nerfies
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+@incollection{wang2025dreamprinting,
+  title={DreamPrinting: Volumetric Printing Primitives for High-Fidelity 3D Printing},
+  author={Wang, Youjia and Cao, Ruixiang and Xu, Teng and Liu, Yifei and Zhang, Dong and Wu, Yiwen and Yu, Jingyi},
+  booktitle={ACM SIGGRAPH 2025 Emerging Technologies},
+  pages={1--2},
+  year={2025}
 }
 ```
 
